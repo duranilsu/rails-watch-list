@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<p><%= link_to 'Add new bookmark:', new_list_bookmark_path(@lists) %></p>
+
+<p><strong>Bookmarks</strong></p>
+<ul class="list-group">
+  <% @lists.bookmarks.each do |bookmark| %>
+    <li class="list-group-item">
+      <p>movie: <%= bookmark.movie_id %></p>
+      <p>list: <%= bookmark.list_id %></p>
+      <p>comment: <%= bookmark.comment %></p>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<div>
+  <%= link_to "Back to lists", lists_path %>
