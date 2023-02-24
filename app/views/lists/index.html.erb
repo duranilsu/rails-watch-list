@@ -5,6 +5,9 @@
 <div id="lists">
   <% @lists.each do |list| %>
     <%= render list %>
+    <% if list.photo.attached? %>
+      <%= cl_image_tag list.photo.key, height: 80, width: 80, crop: :fill %>
+    <% end %>
     <p>
       <%= link_to "Show this list", list %>
     </p>
