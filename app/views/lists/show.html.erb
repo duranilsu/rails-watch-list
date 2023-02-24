@@ -1,17 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<p><%= link_to 'Add new bookmark:', new_list_bookmark_path(@lists) %></p>
+<p><p><strong>List</strong></p>
+<p><%= @list.name %> </p>
 
 <p><strong>Bookmarks</strong></p>
 <ul class="list-group">
-  <% @lists.bookmarks.each do |bookmark| %>
+  <% @list.bookmarks.each do |bookmark| %>
     <li class="list-group-item">
       <p>movie: <%= bookmark.movie_id %></p>
       <p>list: <%= bookmark.list_id %></p>
       <p>comment: <%= bookmark.comment %></p>
+      <p><%= link_to 'Delete bookmark:', bookmark_path(bookmark.id),  data: { turbo_method: :delete, turbo_confirm: 'Delete? Really? ⚠️' } %></p>
     </li>
   <% end %>
 </ul>
+<p><%= link_to 'Add new bookmark:', new_list_bookmark_path(@list) %></p>
 <br>
 
 <div>
